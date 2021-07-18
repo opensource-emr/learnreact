@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div><br>
+
+<script type="text/babel">
+function FirstComponent(props){
+  const [counter, increment] = React.useState(0);
+  const increm = event => increment(counter + 1);
+    
+    return(
+      <div>
+        <p>{props.name}</p>
+        <p>{counter}</p>
+        <button onClick={increm}>Click</button>
+      </div>
+    )
+}
+ReactDOM.render(
+      <FirstComponent name="Shiv"/>,
+      document.getElementById('app')
+    );
+    
+</script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+    
+   class FirstComponent extends React.Component {
+    constructor() {
+          super();
+        this.state = {
+              count: 0,
+              };
+          }
+        updateCount() {
+         this.setState((prevState, props) => {
+             return { 
+              count: prevState.count + 1 
+              }
+          });
+          }
+    componentDidUpdate() {
+      console.log("ES6 update");
+    }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.count !== this.state.count) {
+      console.log('count state has changed.')
+    }
+  }
+    componentDidMount() {
+      console.log("Mount by ES6");
+    }
+    render() {
+      return (
+      <div>
+        <button onClick={() => this.updateCount()}>
+        Clicked {this.state.count} times
+        </button><br/>
+        <h1>Hello World</h1>
+      </div>
+      )
+    }
+  }
+   ReactDOM.render(
+      <FirstComponent name="Shiv"/>,
+      document.getElementById('app')
+    );
+
+    </script>
+  </body>
+</html>

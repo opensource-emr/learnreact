@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div><br>
+    <div id="app1"></div><br>
+    <script type="text/babel">
+    class ClassComponent extends React.Component {
+          CallMe(){
+            alert("Hello");
+          }
+          render() 
+          {
+            return(
+              <div>
+                <button onClick={this.CallMe}>
+                Class calls
+                </button>
+              <h1> class </h1>
+              </div>
+            );
+          }
+    }
+   function FirstComponent() {
+     function CallMe(){
+       alert("Hello");
+     }
+      return(
+        <div>
+          <button onClick={CallMe}>
+         Functions call
+          </button>
+           <h1> Functions </h1>
+          </div>
+        );
+    }
+    
+   ReactDOM.render(
+      <FirstComponent />,
+      document.getElementById('app')
+    );
+    ReactDOM.render(
+      <ClassComponent />,
+      document.getElementById('app1')
+    );
+    </script>
+  </body>
+</html>
