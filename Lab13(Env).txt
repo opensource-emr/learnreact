@@ -1,0 +1,3 @@
+Create a .env file and put this
+GENERATE_SOURCEMAP = false
+then source map files will not be part of production.
