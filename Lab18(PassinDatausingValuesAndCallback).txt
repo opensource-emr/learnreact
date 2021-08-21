@@ -1,0 +1,29 @@
+import React from 'react'
+import { useState } from 'react';
+
+export default function Parent() {
+  const [data, setData] = useState('');
+  const parentToChild = () => {
+    setData("This is data from Parent Component to the Child Component.");
+  }
+  const ChildtoParent = (data) => {
+    setData(data);
+  }
+  return (
+    <div>
+      Hello from parent <br></br>
+      {data}
+      <button onClick={parentToChild}>Parent to child</button>
+        <Child parentToChild={data} ChildtoParent={ChildtoParent} />
+    </div>
+  )
+}
+
+function Child({parentToChild,ChildtoParent}) {
+  return (
+      <div>
+         <button onClick={() => ChildtoParent("Data from child")}>Child to parent</button><br></br>
+          Hello from child <br></br>{parentToChild}
+      </div>
+  )
+}

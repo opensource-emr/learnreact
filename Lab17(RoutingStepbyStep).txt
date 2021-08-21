@@ -1,0 +1,17 @@
+Lab :- Using params
+
+import {
+  useParams
+} from "react-router-dom";
+function About() {
+  let { id } = useParams();
+    return <h2>Welcome to abbout with praater {id}</h2>;
+  }
+
+ <Route path="/about/:id">
+            <About />
+          </Route>
+
+<Link to="/about/2">about</Link><br></br>
+
+Lab :- 

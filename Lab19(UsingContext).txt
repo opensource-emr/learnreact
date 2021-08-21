@@ -1,0 +1,34 @@
+import React,{ useContext } from "react";
+const ColorContext = React.createContext("white");
+export default function App() {
+  const color= "white";
+  return (
+    <ColorContext.Provider value ="red">
+        <div className="App">
+          {color}
+          <HomePage/>
+        </div>
+      </ColorContext.Provider>
+  );
+}
+
+function HomePage(){
+  const value = React.useContext(ColorContext);  
+
+  return (
+    <div>
+       {value}
+       <ColorContext.Consumer>
+           {value => <h1>{value}</h1>} 
+        </ColorContext.Consumer>
+    </div>
+  )
+}
+
+// Passing objects
+value={{
+        name,
+        location,
+        setName,
+        setLocation
+      }}

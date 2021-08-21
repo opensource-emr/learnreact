@@ -1,0 +1,39 @@
+import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import './App.css';
+import About  from './About'; 
+import Customer  from './Customer'; 
+import Home  from './Home'; 
+function App() {
+  return (
+   <Router>
+     <div>
+      <a href="Home">Home123</a><br></br>
+     <Link to="/home">home</Link><br></br>
+     <Link to="/about">about</Link><br></br>
+     <Link to="/customer">customer</Link><br></br>
+     </div>
+     <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/customer">
+            <Customer />
+          </Route>
+      </Switch>
+   </Router>
+  );
+}
+
+export default App;
