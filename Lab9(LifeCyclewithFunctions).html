@@ -8,13 +8,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
   </head>
   <body>
+    <a href="SomePage.html">Some page</a><br>
     <div id="app"></div><br>
 
 <script type="text/babel">
 function FirstComponent(props){
-  const [counter, increment] = React.useState(10);
-  const increm = event => increment(counter + 1);
- // props.name = "hello";
+  const [counter, increment] = React.useState(0);
+  const increm = event => increment(counter+1);
+  
+  React.useEffect(() => {
+      console.log("Component loaded");
+    }, []); 
+    
+    React.useEffect(() => {
+      console.log("Any change....");
+    });
+    
+    React.useEffect(() => {
+      console.log("Only conter value changed");
+    }, [counter]);
+
+    React.useEffect(() => {
+      return () => {
+      alert("Component unloaded");
+      }
+    }, []);
+    
     return(
       <div>
         <p>{props.name}</p>

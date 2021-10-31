@@ -1,0 +1,61 @@
+import logo from './logo.svg';
+import './App.css';
+import React, { useState } from "react";
+
+function App() {
+  const [customer, _setCustomer] = useState({ name: "", code: "" });
+  const [customers, _setCustomers] = useState([]);
+
+  const setCustomer = e => {
+          _setCustomer(prevState => ({
+              ...prevState,
+                [e.target.name]: e.target.value
+          }));
+  };
+  const setCustomers = e => {
+    _setCustomers(prevState => (
+          [...prevState, customer]
+          ));
+        
+      _setCustomer(prevState => ({
+        ...prevState,
+         name: "", code: "" 
+    }));
+    
+      fetch('https://localhost:44393/Home/Submit', {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(customer)
+        })
+  };
+  return (
+    <div className="App">
+        {customer.name} {customer.code}
+       <input  value={customer.name} onChange={setCustomer} type="text" name="name"/>
+       <input  value={customer.code} onChange={setCustomer} type="text" name="code"/>
+       <input value="Add" type="button" onClick={setCustomers}/><br>
+       </br>
+       <table>
+       <thead>
+         <tr>
+           <td>Name</td>
+           <td>code</td>
+         </tr>
+        </thead>
+        <tbody>
+         {customers.map((x,index) => (
+           <tr key={index}>
+            <td>{x.name}</td>
+            <td>{x.code}</td>
+          </tr>
+        ))}
+        </tbody>
+       </table>
+      </div>
+  );
+}
+
+export default App;
