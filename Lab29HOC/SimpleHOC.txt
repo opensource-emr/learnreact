@@ -1,0 +1,17 @@
+function twice(f, v) {
+    return f(f(v));
+  }
+  function add3(v) {
+    return v + 3;
+  }
+  const result = twice(add3, 1);
+  console.log("Result is ", result);
+
+
+  function addX(x) {
+    return function (y) {
+      return x + y;
+    }
+  }
+const add1 = addX(1);
+add1(5); // will return 6

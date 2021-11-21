@@ -1,0 +1,26 @@
+// function to render time
+function tick() {
+  document.getElementById("root").innerHTML = 
+    "<div><h1>Hello, world! -- JS DOM Rendering</h1><h2>It is "
+      + new Date().toLocaleTimeString()+
+    ".</h2></div>";
+}
+
+setInterval(tick, 1000);
+function tick() {
+  const element = (
+     <div>
+      <h1>Hello, world! -- React DOM Rendering</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+     </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+Virtual DOM 
+Reconciler and Renderer
+High priority update
+Typing…immediate feed
+Coming from server
+Fiber breaks things 

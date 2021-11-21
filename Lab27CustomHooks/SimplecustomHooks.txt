@@ -1,0 +1,31 @@
+
+
+
+function useCustomHooks(userName, userDesignation) {
+    let userName1 = "User Name: " + userName;
+    let userDesignation1 = "User Designation: " + userDesignation;
+    return [userName1, userDesignation1];
+  }
+
+  export default useCustomHooks;
+
+  //import SomeOtherComponent from "./SomeOtherComponent"
+import useCustomHooks from "./DisplayUser"
+import React , {Suspense} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+function App() {
+  const [name, designation] = useCustomHooks("Shv", "CEO");
+  return (
+    <div>
+      <h1>{name}</h1>
+      <h2>{designation}</h2>
+    </div>
+   )
+}
+
+export default App;
